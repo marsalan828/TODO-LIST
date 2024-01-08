@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Services\Auth\AuthLoginService;
+use App\Services\Auth\AuthLogoutService;
 use App\Services\Auth\AuthRegistrationService;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
     protected $authLoginService;
+    protected $authLogoutService;
     protected $authRegistrationService;
     public function __construct(
         AuthRegistrationService $authRegistrationService,
-        AuthLoginService $authLoginService)
+        AuthLoginService $authLoginService,
+        AuthLogoutService $authLogoutService)
     {
         $this->authLoginService=$authLoginService;
         $this->authRegistrationService=$authRegistrationService;
@@ -23,5 +26,8 @@ class AuthController extends Controller
 
     public function login(Request $request){
         return $this->authLoginService->login($request->only(['email','password']));
+    }
+    public function logout(Request $request){
+        return $this->authLogoutService->logout($request);
     }
 }
