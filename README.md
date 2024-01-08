@@ -12,7 +12,7 @@ This is a simple TODO app that allows users to register, log in, and manage thei
 
 ## Requirements
 
-- PHP 7.4 or higher
+- PHP 8.2.13
 - Composer
 - Laravel 10
 - MySQL or any other compatible database
