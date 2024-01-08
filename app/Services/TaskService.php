@@ -47,6 +47,10 @@ class TaskService extends TaskRepository{
 
         }
     }
+    public function showAllTasks()
+    {
+        return $this->taskRepository->showAllTasks();
+    }
     public function deleteTask($id)
     {
         return $this->taskRepository->deleteTask($id);
